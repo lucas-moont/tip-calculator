@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root{
     --strongCyan: #26c0ab;
@@ -35,12 +35,17 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Mono', monospace;
+    padding: 32px;
+}
+
+main{
+    width: 100%;
+    max-width: 920px;
 }
 
 .container{
     width: 100%;
-    max-width: 920px;
 }
 
 .logoWrapper{
@@ -68,6 +73,7 @@ body{
         background-color: var(--veryDarkCyan);
         padding: 32px;
         border-radius: 16px;
+        position: relative;
     }
 }
 
@@ -112,4 +118,28 @@ body{
     margin-top: 8px;
     align-items: center;
     border: 2px solid transparent;
+}
+
+.resultWrapper{
+    font-size: 16px;
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 64px;
+
+    .col{
+        width: 50%;
+    }
+
+    .personSpan{
+        color: var(--grayishCyan);
+        font-size: 16px;
+    }
+
+    .secondCol{
+        font-size: 42px;
+        color: var(--strongCyan);
+        padding: 0;
+    }
 }
