@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 :root{
     --strongCyan: #26c0ab;
     --veryDarkCyan: hsl(183, 100%, 15%);
@@ -6,11 +8,24 @@
     --lightGrayishCyan: hsl(185, 41%, 84%);
     --veryLightGrayishCyan: hsl(189, 41%, 97%);
     --white: hsl(0, 0%, 100%);
-
 }
 
 *{
     box-sizing: border-box;
+}
+
+/*HIDING INPUT TYPE NUMBER ARROWS*/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 body{
@@ -20,6 +35,12 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.container{
+    width: 100%;
+    max-width: 920px;
 }
 
 .logoWrapper{
@@ -30,4 +51,65 @@ body{
 .attribution{
     position: absolute;
     bottom: 32px;
+}
+
+.calculatorWrapper{
+    padding: 32px;
+    background-color: var(--white);
+    border-radius: 16px;
+    display: flex;
+    gap: 32px;
+
+    .col{
+        width: 50%;
+    }
+
+    .secondCol{
+        background-color: var(--veryDarkCyan);
+        padding: 32px;
+        border-radius: 16px;
+    }
+}
+
+.inputNumberLabel{
+    color: var(--grayishCyan);
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.inputNumberIcon{
+    flex: 0;
+}
+
+.inputNumberLabel input{
+    border: 0;
+    background-color: transparent;
+    font-size: 24px;
+    color: var(--veryDarkCyan);
+    text-align: right;
+    width: calc(100% - 11px)
+}
+
+.inputNumberLabel input::placeholder{
+    color: var(--veryDarkCyan);
+}
+
+.inputNumberSpan{
+    flex: 1;
+}
+
+.inputNumberLabel input:focus{
+    outline: none;
+}
+
+.inputNumberSpanWrapper{
+    background-color: var(--veryLightGrayishCyan);
+    padding: 8px 16px;
+    border-radius: 6px;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: center;
+    border: 2px solid transparent;
 }
