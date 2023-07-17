@@ -93,19 +93,20 @@ main{
     font-size: 24px;
     color: var(--veryDarkCyan);
     text-align: right;
-    width: calc(100% - 11px)
+    width: calc(100% - 11px);
+
+    &::placeholder{
+        color: var(--veryDarkCyan);
+    }
+
+    &:focus{
+        outline: none;
+    }
 }
 
-.inputNumberLabel input::placeholder{
-    color: var(--veryDarkCyan);
-}
 
 .inputNumberSpan{
     flex: 1;
-}
-
-.inputNumberLabel input:focus{
-    outline: none;
 }
 
 .inputNumberSpanWrapper{
@@ -141,5 +142,25 @@ main{
         font-size: 42px;
         color: var(--strongCyan);
         padding: 0;
+    }
+
+    .resetBtn{
+        width: calc(100% - 64px);
+        position: absolute;
+        left: 32px;
+        bottom: 0px;
+        padding: 12px;
+        background-color: var(--strongCyan);
+        border: 2px solid var(--strongCyan);
+        border-radius: 6px;
+        font-size: 18px;
+        color: var(--veryDarkCyan);
+        font-weight: 700;
+        transition: 0.5s;
+
+        &:hover{
+            background-color: transparent;
+            color: var(--strongCyan);
+        }
     }
 }
