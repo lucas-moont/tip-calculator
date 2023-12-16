@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-:root{
-    --strongCyan: #26c0ab;
-    --veryDarkCyan: hsl(183, 100%, 15%);
-    --darkGrayishCyan: hsl(186, 14%, 43%);
-    --grayishCyan: hsl(184, 14%, 56%);
-    --lightGrayishCyan: hsl(185, 41%, 84%);
-    --veryLightGrayishCyan: hsl(189, 41%, 97%);
-    --white: hsl(0, 0%, 100%);
+:root {
+  --strongCyan: #26c0ab;
+  --veryDarkCyan: hsl(183, 100%, 15%);
+  --darkGrayishCyan: hsl(186, 14%, 43%);
+  --grayishCyan: hsl(184, 14%, 56%);
+  --lightGrayishCyan: hsl(185, 41%, 84%);
+  --veryLightGrayishCyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
 }
 
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 /*HIDING INPUT TYPE NUMBER ARROWS*/
@@ -24,143 +24,184 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-body{
-    margin: 0;
-    background-color: var(--lightGrayishCyan);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: 'Space Mono', monospace;
+body {
+  margin: 0;
+  background-color: var(--lightGrayishCyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Space Mono", monospace !important;
+  padding: 32px;
+}
+
+main {
+  width: 100%;
+  max-width: 920px;
+}
+
+.container {
+  width: 100%;
+}
+
+.logoWrapper {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 32px;
+}
+
+.calculatorWrapper {
+  padding: 32px;
+  background-color: var(--white);
+  border-radius: 16px;
+  display: flex;
+  gap: 32px;
+
+  .col {
+    width: 50%;
+  }
+
+  .secondCol {
+    background-color: var(--veryDarkCyan);
     padding: 32px;
-}
-
-main{
-    width: 100%;
-    max-width: 920px;
-}
-
-.container{
-    width: 100%;
-}
-
-.logoWrapper{
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.attribution{
-    position: absolute;
-    bottom: 32px;
-}
-
-.calculatorWrapper{
-    padding: 32px;
-    background-color: var(--white);
     border-radius: 16px;
-    display: flex;
-    gap: 32px;
-
-    .col{
-        width: 50%;
-    }
-
-    .secondCol{
-        background-color: var(--veryDarkCyan);
-        padding: 32px;
-        border-radius: 16px;
-        position: relative;
-    }
+    position: relative;
+  }
 }
 
-.inputNumberLabel{
-    color: var(--grayishCyan);
-    font-weight: 400;
-    font-size: 20px;
+.inputNumberLabel,
+.mainCalculatorTitle {
+  color: var(--grayishCyan);
+  font-weight: 400;
+  font-size: 20px;
 }
 
-.inputNumberIcon{
-    flex: 0;
+.inputNumberLabel:first-of-type {
+  margin-bottom: 16px;
+  display: block;
 }
 
-.inputNumberLabel input{
-    border: 0;
-    background-color: transparent;
-    font-size: 24px;
+.inputNumberLabel:last-of-type {
+  margin-top: 16px;
+  display: block;
+}
+
+.mainCalculatorTitle {
+  margin: 0;
+}
+
+.inputNumberIcon {
+  flex: 0;
+}
+
+.inputNumberLabel input {
+  border: 0;
+  background-color: transparent;
+  font-size: 24px;
+  color: var(--veryDarkCyan);
+  text-align: right;
+  width: calc(100% - 11px);
+
+  &::placeholder {
     color: var(--veryDarkCyan);
-    text-align: right;
-    width: calc(100% - 11px);
+  }
 
-    &::placeholder{
-        color: var(--veryDarkCyan);
-    }
-
-    &:focus{
-        outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
-
-.inputNumberSpan{
-    flex: 1;
+.inputNumberSpan {
+  flex: 1;
 }
 
-.inputNumberSpanWrapper{
-    background-color: var(--veryLightGrayishCyan);
-    padding: 8px 16px;
-    border-radius: 6px;
+.inputNumberSpanWrapper {
+  background-color: var(--veryLightGrayishCyan);
+  padding: 8px 16px;
+  border-radius: 6px;
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+  border: 2px solid transparent;
+}
+
+.selectTipGridInner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+
+  .tipColumn {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  button,
+  input {
+    height: 50px;
     width: 100%;
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-    align-items: center;
-    border: 2px solid transparent;
+    font-size: 24px;
+    font-family: "Space Mono", monospace !important;
+    text-align: center;
+  }
+
+  button {
+    background-color: var(--veryDarkCyan);
+    border: 0;
+    color: var(--white);
+  }
 }
 
-.resultWrapper{
+.resultWrapper {
+  font-size: 16px;
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 64px;
+
+  .col {
+    width: 50%;
+  }
+
+  .personSpan {
+    color: var(--grayishCyan);
     font-size: 16px;
-    color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 64px;
+  }
 
-    .col{
-        width: 50%;
+  .secondCol {
+    font-size: 42px;
+    color: var(--strongCyan);
+    padding: 0;
+  }
+
+  .resetBtn {
+    width: calc(100% - 64px);
+    position: absolute;
+    left: 32px;
+    bottom: 16px;
+    padding: 12px;
+    background-color: var(--strongCyan);
+    border: 2px solid var(--strongCyan);
+    border-radius: 6px;
+    font-size: 18px;
+    color: var(--veryDarkCyan);
+    font-weight: 700;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: transparent;
+      color: var(--strongCyan);
     }
-
-    .personSpan{
-        color: var(--grayishCyan);
-        font-size: 16px;
-    }
-
-    .secondCol{
-        font-size: 42px;
-        color: var(--strongCyan);
-        padding: 0;
-    }
-
-    .resetBtn{
-        width: calc(100% - 64px);
-        position: absolute;
-        left: 32px;
-        bottom: 0px;
-        padding: 12px;
-        background-color: var(--strongCyan);
-        border: 2px solid var(--strongCyan);
-        border-radius: 6px;
-        font-size: 18px;
-        color: var(--veryDarkCyan);
-        font-weight: 700;
-        transition: 0.5s;
-
-        &:hover{
-            background-color: transparent;
-            color: var(--strongCyan);
-        }
-    }
+  }
 }
