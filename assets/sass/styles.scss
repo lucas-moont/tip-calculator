@@ -34,9 +34,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Space Mono", monospace !important;
   padding: 32px;
+  padding-bottom: 64px;
+  position: relative;
 }
 
 main {
@@ -159,6 +161,31 @@ main {
     background-color: var(--veryDarkCyan);
     border: 0;
     color: var(--white);
+    font-weight: 600;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover{
+        color: var(--veryDarkCyan);
+        background-color: var(--strongCyan);    
+    }
+  }
+
+  button.active{
+    color: var(--veryDarkCyan);
+    background-color: var(--strongCyan);
+  }
+
+  input,
+  input::placeholder{
+    color: var(--veryDarkCyan);
+    font-weight: 600;
+    background-color: var(--veryLightGrayishCyan);
+    border: 0;
+  }
+
+  input{
+    border-radius: 8px;
   }
 }
 
