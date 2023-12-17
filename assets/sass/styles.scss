@@ -12,6 +12,8 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Space Mono", monospace !important;
+
 }
 
 /*HIDING INPUT TYPE NUMBER ARROWS*/
@@ -152,7 +154,7 @@ main {
   input {
     height: 50px;
     width: 100%;
-    font-size: 24px;
+    font-size: 22px;
     font-family: "Space Mono", monospace !important;
     text-align: center;
   }
