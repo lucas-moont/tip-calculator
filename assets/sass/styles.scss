@@ -184,9 +184,6 @@ main {
     font-weight: 600;
     background-color: var(--veryLightGrayishCyan);
     border: 0;
-  }
-
-  input{
     border-radius: 8px;
   }
 }
@@ -200,7 +197,8 @@ main {
   gap: 64px;
 
   .col {
-    width: 50%;
+    width: auto;
+    max-width: 50%;
   }
 
   .personSpan {
@@ -212,6 +210,11 @@ main {
     font-size: 36px;
     color: var(--strongCyan);
     padding: 0;
+
+    span{
+      word-wrap: break-word; /* Para compatibilidade com navegadores mais antigos */
+      overflow-wrap: break-word; /* Para navegadores mais recentes */
+    }
   }
 
   .resetBtn {
