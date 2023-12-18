@@ -1,4 +1,7 @@
 function createCalculator(calculator){
+    let percentage = 0
+    let bill = 0
+    let numberOfPeople = 1
     return {
         initiateCalculator(){
             this.tipButtonsClick()
@@ -10,12 +13,19 @@ function createCalculator(calculator){
                 item.addEventListener('click', () => {
                     this.clearButtons(tipBtns)
                     item.classList.add('active')
-                    let percentage = item.innerHTML
+                    percentage = item.innerHTML
                     percentage = percentage.replace('%', '')
                     percentage = Number(percentage)
-                    
+                    this.doCalculation()
                 })
             })
+        },
+
+        doCalculation(){
+            let tipPercentage = percentage / 100
+            bill = 75
+            let tipAmount = tipPercentage * bill / numberOfPeople
+            console.log(tipAmount)
         },
 
         clearButtons(arrayOfButtons){
@@ -23,6 +33,7 @@ function createCalculator(calculator){
                 element.classList.remove('active')
             });
         }
+
     }
 }
 
