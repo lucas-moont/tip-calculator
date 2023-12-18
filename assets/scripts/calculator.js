@@ -29,7 +29,12 @@ function createCalculator(calculator) {
       numberOfPeopleInput.addEventListener("keydown", (e) => {
         this.validateNumber(numberOfPeopleInput, e);
       });
-      numberOfPeople = numberOfPeopleInput.value;
+
+      numberOfPeopleInput.addEventListener("keyup", (e) => {
+        numberOfPeople = Number(numberOfPeopleInput.value);
+
+        this.doCalculation()
+      })
     },
 
     validateNumber(input, event) {
@@ -46,9 +51,9 @@ function createCalculator(calculator) {
 
     doCalculation() {
       let tipPercentage = percentage / 100;
-      bill = 75;
-      let tipAmount = (tipPercentage * bill) / numberOfPeople;
-      console.log(tipAmount);
+      bill = 100;
+      let tipAmount = (tipPercentage * bill);
+      let tipPerson = (tipPercentage * bill) / numberOfPeople
     },
 
     clearButtons(arrayOfButtons) {
