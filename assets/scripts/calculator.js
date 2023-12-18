@@ -6,6 +6,7 @@ function createCalculator(calculator) {
     initiateCalculator() {
       this.tipButtonsClick();
       this.getNumberOfPeople();
+      this.customPercentage();
     },
 
     tipButtonsClick() {
@@ -20,6 +21,14 @@ function createCalculator(calculator) {
           this.doCalculation();
         });
       });
+    },
+
+    customPercentage(){
+        let customInput = calculator.querySelector('#customTipInput')
+        customInput.addEventListener('keyup', () => {
+            percentage = customInput.value
+            this.doCalculation()
+        })
     },
 
     getNumberOfPeople() {
@@ -52,8 +61,11 @@ function createCalculator(calculator) {
     doCalculation() {
       let tipPercentage = percentage / 100;
       bill = 100;
-      let tipAmount = (tipPercentage * bill);
       let tipPerson = (tipPercentage * bill) / numberOfPeople
+      let total = bill / numberOfPeople
+      
+      calculator.querySelector('#totalResult span').innerHTML = total.toFixed(2)
+      calculator.querySelector('#tipAmountResult span').innerHTML = tipPerson.toFixed(2)
     },
 
     clearButtons(arrayOfButtons) {
