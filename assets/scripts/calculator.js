@@ -7,6 +7,21 @@ function createCalculator(calculator) {
       this.tipButtonsClick();
       this.getNumberOfPeople();
       this.customPercentage();
+      this.getBill(calculator.querySelector("#billValue"));
+    },
+
+    getBill(input) {
+      input.addEventListener("input", () => {
+        billValue = this.validateFloatNumber(input);
+        bill = billValue;
+        this.doCalculation();
+      });
+    },
+
+    validateFloatNumber(input) {
+      let inputValue = input.value;
+      inputValue = Number(inputValue);
+      return inputValue;
     },
 
     tipButtonsClick() {
@@ -23,12 +38,12 @@ function createCalculator(calculator) {
       });
     },
 
-    customPercentage(){
-        let customInput = calculator.querySelector('#customTipInput')
-        customInput.addEventListener('keyup', () => {
-            percentage = customInput.value
-            this.doCalculation()
-        })
+    customPercentage() {
+      let customInput = calculator.querySelector("#customTipInput");
+      customInput.addEventListener("keyup", () => {
+        percentage = Number(customInput.value);
+        this.doCalculation();
+      });
     },
 
     getNumberOfPeople() {
@@ -40,10 +55,15 @@ function createCalculator(calculator) {
       });
 
       numberOfPeopleInput.addEventListener("keyup", (e) => {
-        numberOfPeople = Number(numberOfPeopleInput.value);
+        if(numberOfPeopleInput.value !== ''){
+            numberOfPeople = Number(numberOfPeopleInput.value);
+        }else{
+            numberOfPeople = 1
+        }
 
-        this.doCalculation()
-      })
+
+        this.doCalculation();
+      });
     },
 
     validateNumber(input, event) {
@@ -60,12 +80,13 @@ function createCalculator(calculator) {
 
     doCalculation() {
       let tipPercentage = percentage / 100;
-      bill = 100;
-      let tipPerson = (tipPercentage * bill) / numberOfPeople
-      let total = bill / numberOfPeople
-      
-      calculator.querySelector('#totalResult span').innerHTML = total.toFixed(2)
-      calculator.querySelector('#tipAmountResult span').innerHTML = tipPerson.toFixed(2)
+      let tipPerson = (tipPercentage * bill) / numberOfPeople;
+      let total = bill / numberOfPeople;
+
+      calculator.querySelector("#totalResult span").innerHTML =
+        total.toFixed(2);
+      calculator.querySelector("#tipAmountResult span").innerHTML =
+        tipPerson.toFixed(2);
     },
 
     clearButtons(arrayOfButtons) {
